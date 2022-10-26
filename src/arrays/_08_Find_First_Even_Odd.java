@@ -3,8 +3,31 @@ package arrays;
 public class _08_Find_First_Even_Odd {
     public static void main(String[] args) {
 
-        int[] numbers = {0, 5, 3, 2, 4, 7, 10};
-        printFirstEvenOdd(numbers);
+        int[] numbers1 = {0, 5, 3, 2, 4, 7, 10};
+        int[] numbers2 = {0, 2, 2, 5, 3, 2, 4, 7, 10};
+        int[] numbers3 = {0, 2, 2, 10};
+
+        System.out.println("\nTask 1 Example 1: \n");
+        printFirstEvenOdd(numbers1);
+
+        System.out.println("\nTask 1 Example 2: \n");
+        printFirstEvenOdd(numbers2);
+
+        System.out.println("\nTask 1 Example 3: \n");
+        printFirstEvenOdd(numbers3);
+
+        String[] characters1 = {"ABCD", "abcd", "123", "!@#"};
+        String[] characters2 = {"abcd", "123", "!@#"};
+        String[] characters3 = {"123", "!@#"};
+
+        System.out.println("\nTask 2 Example 1: \n");
+        printStartsWithA(characters1);
+
+        System.out.println("\nTask 2 Example 2: \n");
+        printStartsWithA(characters2);
+
+        System.out.println("\nTask 2 Example 3: \n");
+        printStartsWithA(characters3);
     }
 
     /*
@@ -74,4 +97,50 @@ public class _08_Find_First_Even_Odd {
         System.out.println((isOddFound ? "First odd = " + fOdd : "There is no odd number in this array"));
          */
     }
+
+    /*
+    Create a public static method named  which will take a String array then it will
+    print out the first String starting with "a", NOT CASE SENSITIVE
+    If there is not a String which is starting with "a" print -> 'No String starting with "a"'
+
+    Example1:
+    - array =  {"ABCD", "abcd", "123", "!@#"}
+
+    Output1:
+        First string with "a" = "ABCD"
+
+    Example2:
+    - array =  {"abcd", "123", "!@#"}
+
+    Output2:
+        First string with "a" = "abcd"
+
+    Example3:
+    - array =  {"123", "!@#"}
+
+    Output3:
+        No String starting with "a"
+    */
+    public static void printStartsWithA(String[] strs){
+        /*
+        Pseudo Code:
+        1. Containers -> isAFound
+        2. Loop -> should start with "a" and should be first
+        3. print them -> if we found print the "str" otherwise "No String starting with "a""
+         */
+
+        boolean isAFound = false;
+
+        for (String s : strs) {
+            if (s.toLowerCase().startsWith("a") && !isAFound){
+                System.out.println("First String with \"a\" = " + s);
+                isAFound = true;
+            }
+        }
+
+        if (!isAFound){
+            System.out.println("No String starting with \"a\"");
+        }
+    }
+
 }
