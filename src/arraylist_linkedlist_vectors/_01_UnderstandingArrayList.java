@@ -49,7 +49,7 @@ public class _01_UnderstandingArrayList {
         System.out.println("The size of the ArrayList = " + names2.size()); // 10
 
         // 5. Updating an existing element in array vs ArrayList
-        System.out.println("\n---Updated existing elements array vs ArrayList---");
+        System.out.println("\n---Updating existing elements array vs ArrayList---");
         names1[1] = "Mike";
         System.out.println("The array = " + Arrays.toString(names1)); // [Alex, Mike, Andrii]
         names2.set(1, "Olena");
