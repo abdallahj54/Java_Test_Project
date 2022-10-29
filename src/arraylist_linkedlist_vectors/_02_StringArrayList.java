@@ -103,7 +103,6 @@ public class _02_StringArrayList {
         Expected Output:
         []
         0
-
          */
 
         System.out.println("\n---Task 5---");
