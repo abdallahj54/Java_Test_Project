@@ -1,6 +1,8 @@
 package arraylist_linkedlist_vectors;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class _05_containsAll_retainAll_Methods {
     public static void main(String[] args) {
@@ -66,5 +68,9 @@ public class _05_containsAll_retainAll_Methods {
 
         countries.retainAll(europeCountries);
         System.out.println(countries); // [Italy, Germany, Spain, Portugal, Sweden]
+
+        System.out.println("\n---sorting a collection---");
+        Collections.sort(countries); // to sort the ArrayList
+        System.out.println(countries);
     }
 }
