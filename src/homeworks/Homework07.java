@@ -3,6 +3,7 @@ package homeworks;
 import java.util.ArrayList;
 
 import java.util.Collections;
+import java.util.Vector;
 
 public class Homework07 {
     public static void main(String[] args) {
@@ -144,5 +145,60 @@ public class Homework07 {
 
         Collections.sort(objects);
         System.out.println(objects);
+
+        int startsWithM = 0, notContainsAorE = 0;
+
+        for (String object : objects) {
+            if(object.toLowerCase().startsWith("m")) startsWithM++;
+            if(!object.toLowerCase().contains("a") && !object.toLowerCase().contains("e")) notContainsAorE++;
+        }
+        System.out.println(startsWithM);
+        System.out.println(notContainsAorE);
+
+
+        System.out.println("\n---Task 9---");
+
+        ArrayList<String> kitchen = new ArrayList<>();
+        kitchen.add("Plate");
+        kitchen.add("spoon");
+        kitchen.add("fork");
+        kitchen.add("Knife");
+        kitchen.add("cup");
+        kitchen.add("Mixer");
+
+        System.out.println(kitchen);
+
+        int startsWithUpper = 0, startsWithLower = 0, havingP = 0, startingEndingWithP = 0;
+
+        for (String element : kitchen) {
+            if(Character.isUpperCase(element.charAt(0))) startsWithUpper++;
+            if(Character.isLowerCase(element.charAt(0))) startsWithLower++;
+            if(element.toLowerCase().contains("p")) havingP++;
+            if(element.toLowerCase().startsWith("p") || element.toLowerCase().endsWith("p")) startingEndingWithP++;
+        }
+        System.out.println("Elements starts with uppercase = " + startsWithUpper);
+        System.out.println("Elements starts with lowercase = " + startsWithLower);
+        System.out.println("Elements having P or p = " + havingP);
+        System.out.println("Elements starting or ending with P or p = " + startingEndingWithP);
+
+
+        System.out.println("\n---Task 10---");
+        Integer[] arr = {3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78};
+        ArrayList<Integer> numbers1 = new ArrayList<>();
+        Collections.addAll(numbers1, arr);
+        System.out.println(numbers1);
+
+        int dividedBy10 = 0, evenAndGreaterThan15 = 0, oddAndLessThan20 = 0, lessThan15OrGreaterThan50 = 0;
+
+        for (Integer element: numbers1){
+            if (element % 10 == 0) dividedBy10++;
+            if (element % 2 == 0 && element > 15) evenAndGreaterThan15++;
+            if (element % 2 == 1 && element < 20) oddAndLessThan20++;
+            if (element < 15 || element > 50) lessThan15OrGreaterThan50++;
+        }
+        System.out.println("Elements that can be divided by 10 = " + dividedBy10);
+        System.out.println("Elements that are even and greater than 15 = " + evenAndGreaterThan15);
+        System.out.println("Elements that are odd and less than 20 = " + oddAndLessThan20);
+        System.out.println("Elements that are less than 15 or greater than 50 = " + lessThan15OrGreaterThan50);
     }
 }
