@@ -1,6 +1,8 @@
 package projects;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Project05 {
     public static void main(String[] args) {
@@ -16,6 +18,7 @@ public class Project05 {
 
         System.out.println("\n---Task 3---");
         int[] numbers2 = {10, 5, 6, 7, 8, 5, 15, 15};
+        findSecondGreatestAndSmallest(numbers2);
 
 
         System.out.println("\n---Task 4---");
@@ -23,7 +26,13 @@ public class Project05 {
 
 
         System.out.println("\n---Task 5---");
+        String[] words = {"foo", "bar", "Foo", "bar", "6", "abc", "6", "xyz"};
+        findDuplicatedElementsInAnArray(words);
 
+
+        System.out.println("\n---Task 6---");
+        String[] objects = {"pen", "eraser", "pencil", "pen", "123", "abc", "pen", "eraser"};
+        findMostRepeatedElementInAnArray(objects);
     }
 
     // Task 1
@@ -63,7 +72,11 @@ public class Project05 {
     }
 
     // Task 3
-
+    public static void findSecondGreatestAndSmallestWithSort(int[] arrayName){
+        Arrays.sort(arrayName);
+        System.out.println("Second Greatest = " + arrayName[arrayName.length - 2]);
+        System.out.println("Second Smallest = " + arrayName[1]);
+    }
 
     // Task 4
     public static int findMax(int[] numbers){
@@ -97,5 +110,33 @@ public class Project05 {
     }
 
     // Task 5
+    public static void findDuplicatedElementsInAnArray(String[] arrayName){
+        ArrayList<String> duplicates = new ArrayList<>();
+        for (int i = 0; i < arrayName.length; i++) {
+            for (int j = 1; j < arrayName.length; j++) {
+                if(arrayName[i] == arrayName[j] & i != j & !duplicates.contains(arrayName[i])){
+                    duplicates.add(String.valueOf(arrayName[i]));
+                }
+            }
+        }
+        for (String duplicate: duplicates) {
+            System.out.println(duplicate);
+        }
+    }
+
+    // Task 6
+    public static void findMostRepeatedElementInAnArray(String[] arrayName){
+        ArrayList<String> duplicates = new ArrayList<>();
+        for (int i = 0; i < arrayName.length; i++) {
+            int count = 0;
+            for (int j = 1; j < arrayName.length; j++) {
+                if(arrayName[i] == arrayName[j] & i != j){
+                    count++;
+                } duplicates.add("" + count + arrayName[i]);
+            }
+        }
+        Collections.sort(duplicates);
+        System.out.println(duplicates.get(duplicates.size() - 1).substring(1));
+    }
 
 }
