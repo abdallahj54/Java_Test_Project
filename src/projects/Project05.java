@@ -18,7 +18,7 @@ public class Project05 {
 
         System.out.println("\n---Task 3---");
         int[] numbers2 = {10, 5, 6, 7, 8, 5, 15, 15};
-        findSecondGreatestAndSmallest(numbers2);
+        findSecondGreatestAndSmallestWithSort(numbers2);
 
 
         System.out.println("\n---Task 4---");
@@ -74,8 +74,8 @@ public class Project05 {
     // Task 3
     public static void findSecondGreatestAndSmallestWithSort(int[] arrayName){
         Arrays.sort(arrayName);
-        System.out.println("Second Greatest = " + arrayName[arrayName.length - 2]);
-        System.out.println("Second Smallest = " + arrayName[1]);
+        System.out.println("Second Smallest = " + arrayName[2]);
+        System.out.println("Second Greatest = " + arrayName[arrayName.length - 3]);
     }
 
     // Task 4
