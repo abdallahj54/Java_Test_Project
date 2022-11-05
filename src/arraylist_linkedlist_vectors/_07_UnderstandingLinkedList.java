@@ -25,7 +25,7 @@ public class _07_UnderstandingLinkedList {
         System.out.println(numbers.pop()); // 4.5; shows the first element and then removes it
         System.out.println(numbers); // [10.5, 5.5, 20.0]
 
-        System.out.println(numbers.pollLast()); // 20.0; shows the first element and then removes it
+        System.out.println(numbers.pollLast()); // 20.0; shows the last element and then removes it
         System.out.println(numbers); // [10.5, 5.5]
 
         numbers.push(2.0); // adds 2.0 to the first index
