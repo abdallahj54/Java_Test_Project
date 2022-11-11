@@ -55,8 +55,9 @@ public class Exercises {
 
         System.out.println("\n---Exercise 7---");
         // create a regex pattern that checks for email address formatting
-        System.out.println(Pattern.matches("[A-Za-z0-9_.]{1,}@[A-Za-z.]{1,}", "user@domain.com")); // true
-        System.out.println(Pattern.matches("[A-Za-z0-9_.]{1,}@[A-Za-z.]{1,}", "@domain.com")); // false
-        System.out.println(Pattern.matches("[A-Za-z0-9_.]{1,}@[A-Za-z.]{1,}", "user_123.456@domain.com")); // true
+        System.out.println(Pattern.matches("[\\w.]{2,}@[\\w.[^_]]{2,}\\.[\\w[^_]]{2,}", "user@domain.com")); // true
+        System.out.println(Pattern.matches("[\\w.]{2,}@[\\w.[^_]]{2,}\\.[\\w[^_]]{2,}", "user@domaincom")); // false
+        System.out.println(Pattern.matches("[\\w.]{2,}@[\\w.[^_]]{2,}\\.[\\w[^_]]{2,}", "user@domain.student.com")); // true
+        System.out.println(Pattern.matches("[\\w.]{2,}@[\\w.[^_]]{2,}\\.[\\w[^_]]{2,}", "userdomain.com")); // false
     }
 }
