@@ -42,6 +42,8 @@ public class Homework10 {
 
 
         System.out.println("\n---Task 8---");
+        int[] num4 = {10, -13, 8, 12, 15, -20};
+        System.out.println(findClosestTo10(num4));
     }
 
     //Task 1
@@ -114,4 +116,33 @@ public class Homework10 {
     }
 
     //Task 8
+    public static int findClosestTo10(int[] array){
+        int min=0,max=10,nearestNumber;
+        int myNumber = 0;
+        for(int i = 0; i<array.length; i++){
+            if(array[i]<myNumber){
+                if( min==0){
+                    min=array[i];
+                } else if(array[i]>min){
+                    min=array[i];}
+            } else if(array[i]>myNumber) {
+                if(max==10) {
+                    max=array[i];
+                }
+                else if(array[i]<max){
+                    max=array[i];}
+            }
+            else
+            {
+                return array[i];
+            }
+        } if(Math.abs(myNumber-min)<Math.abs(myNumber-max)){
+            nearestNumber=min;
+        }
+        else
+        {
+            nearestNumber=max;
+        }
+        return nearestNumber;
+    }
 }
