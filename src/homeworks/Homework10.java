@@ -22,12 +22,12 @@ public class Homework10 {
 
         System.out.println("\n---Task 4---");
         ArrayList<Integer> noDups = new ArrayList<>(Arrays.asList(10, 20, 35, 20, 35, 60, 70, 60));
-        System.out.println(removeDuplicateNumbers(noDups));
+        System.out.println(removeDuplicates(noDups));
 
 
         System.out.println("\n---Task 5---");
         ArrayList<String> noDuplicates= new ArrayList<>(Arrays.asList("java", "C#", "ruby", "JAVA", "ruby", "C#", "C++"));
-        System.out.println(removeDuplicateElements(noDuplicates));
+        System.out.println(removeDuplicatesElements(noDuplicates));
 
 
         System.out.println("\n---Task 6---");
@@ -38,7 +38,7 @@ public class Homework10 {
         System.out.println("\n---Task 7---");
         int[] num1 = {3, 0, 0, 7, 5, 10};
         int[] num2 = {6, 3, 2};
-        System.out.println(Arrays.toString(sumOfArrays(num2, num1)));
+        System.out.println(Arrays.toString(add(num2, num1)));
 
 
         System.out.println("\n---Task 8---");
@@ -48,101 +48,115 @@ public class Homework10 {
 
     //Task 1
     public static int countWords(String str) {
-        return str.trim().split("[ ]+").length;
+        if (str.replaceAll("[^a-zA-Z]", "").isEmpty()) return 0;
+        return str.trim().split("\\s+").length;
+       /*
+       WAY 2:
+       str = str.replaceAll("[^a-zA-Z ]", "");
+        boolean isWord = false;
+        int counter = 0;
+        int i = 0;
+        while(i<str.length()){
+            if(str.charAt(i) == ' ')isWord = true;
+            else if(isWord){
+                isWord = false;
+                counter++;
+            }
+            i++;
+        }
+        return counter;
+        */
     }
+
 
     //Task 2
     public static int countA(String str) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == 'A' || str.charAt(i) == 'a') count++;
-        }
-        return count;
+        return str.replaceAll("[^aA]", "").length();
     }
 
     //Task 3
-    public static int countPos(ArrayList<Integer> numbers) {
-        int count = 0;
-        for (Integer number : numbers) {
-            if (number > 0) count++;
+    public static int countPos(ArrayList<Integer> arr) {
+        int counter = 0;
+
+        for (int i : arr) {
+            if (i > 0) counter++;
         }
-        return count;
+        return counter;
     }
 
     //Task 4
-    public static ArrayList<Integer> removeDuplicateNumbers(ArrayList<Integer> dups) {
-        HashSet<Integer> removeD = new HashSet<>();
-        removeD.addAll(dups);
-        ArrayList<Integer> noDups = new ArrayList<>();
-        noDups.addAll(removeD);
-        return noDups;
+    public static ArrayList<Integer> removeDuplicates(ArrayList<Integer> arr) {
+
+        ArrayList<Integer> newArr = new ArrayList<>();
+
+        for (Integer integer : arr) {
+            if (!newArr.contains(integer)) newArr.add(integer);
+        }
+        return newArr;
     }
 
     //Task 5
-    public static ArrayList<String> removeDuplicateElements(ArrayList<String> dupsE) {
-        HashSet<String> removeE = new HashSet<>();
-        removeE.addAll(dupsE);
-        ArrayList<String> noDupsE = new ArrayList<>();
-        noDupsE.addAll(removeE);
-        return noDupsE;
+    public static ArrayList<String> removeDuplicatesElements(ArrayList<String> arr) {
+
+        ArrayList<String> newArr = new ArrayList<>();
+
+        for (String str : arr) {
+            if (!newArr.contains(str)) newArr.add(str);
+        }
+        return newArr;
     }
 
     //Task 6
     public static String removeExtraSpaces(String str) {
-        String s = "";
-        for (int i = 0; i < str.length() - 1; i++) {
-            if ((str.charAt(i) == ' ') && (str.charAt(i + 1) == ' ')) {
-                continue;
-            }
-            else s += str.charAt(i);
+        return str.trim().replaceAll("\\s+", " ");
+        /*
+        WAY 2:
+        String newStr = "";
+        char[] strAsArr = str.toCharArray();
+        for (int i = 0; i < strAsArr.length; i++) {
+            if(strAsArr[i] != ' ') newStr += strAsArr[i];
+            else if(i != strAsArr.length-1 && strAsArr[i+1] != ' ') newStr += strAsArr[i];
         }
-        return s;
+        return newStr.trim();
+
+         */
     }
 
     //Task 7
-    public static int[] sumOfArrays(int[] first, int[] second) {
-        int[] third = new int[Math.max(first.length, second.length)];
-        for (int i = 0; i < Math.min(first.length, second.length); i++) {
-            third[i] = first[i] + second[i];
+    public static int[] add(int[] arr1, int[] arr2) {
+        int smallerLength = Math.min(arr1.length, arr2.length);
+        int largerLength = Math.max(arr1.length, arr2.length);
+        int[] arr = new int[largerLength];
+        for (int i = 0; i < smallerLength; i++) {
+            arr[i] = arr1[i] + arr2[i];
         }
-        for (int i = Math.min(first.length, second.length); i < third.length; i++) {
-            if (first.length > second.length){
-                third[i] = first[i];
-            }else {
-                third[i] = second[i];
-            }
+
+        for (int i = smallerLength; i < largerLength; i++) {
+            if (arr1.length > arr2.length) arr[i] = arr1[i];
+            else arr[i] = arr2[i];
         }
-        return third;
+
+        return arr;
     }
 
     //Task 8
-    public static int findClosestTo10(int[] array){
-        int min=0,max=10,nearestNumber;
-        int myNumber = 0;
-        for(int i = 0; i<array.length; i++){
-            if(array[i]<myNumber){
-                if( min==0){
-                    min=array[i];
-                } else if(array[i]>min){
-                    min=array[i];}
-            } else if(array[i]>myNumber) {
-                if(max==10) {
-                    max=array[i];
-                }
-                else if(array[i]<max){
-                    max=array[i];}
-            }
-            else
-            {
-                return array[i];
-            }
-        } if(Math.abs(myNumber-min)<Math.abs(myNumber-max)){
-            nearestNumber=min;
+    public static int findClosestTo10(int[] arr) {
+
+        Arrays.sort(arr);
+        int numberBefore10=0;
+        int numberAfter10=0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] < 10) numberBefore10 = arr[i];
         }
-        else
-        {
-            nearestNumber=max;
+        for (int i = arr.length-1; i > 0; i--) {
+            if(arr[i] > 10) numberAfter10 = arr[i];
         }
-        return nearestNumber;
+
+        if(arr[0] >= 10) return numberAfter10;
+        else if(arr[arr.length-1] <= 10) return numberBefore10;
+        else {
+            if(Math.abs(10-numberBefore10) <= Math.abs(10-numberAfter10)) return numberBefore10;
+            else return numberAfter10;
+        }
     }
 }
