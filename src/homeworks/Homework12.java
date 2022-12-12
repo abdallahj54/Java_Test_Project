@@ -62,12 +62,6 @@ public class Homework12 {
 
     // Task4
     public static boolean hasUpperCase(String str){
-//        for (char c : str.toCharArray()) {
-//            if (Character.isUpperCase(c)) {
-//                return true;
-//            }
-//        }
-//        return false;
 
         boolean isUpperCase = false;
         for (int i = 0; i < str.length(); i++) {
