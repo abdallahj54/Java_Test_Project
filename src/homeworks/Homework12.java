@@ -4,39 +4,32 @@ import java.util.Arrays;
 
 public class Homework12 {
     public static void main(String[] args) {
-        System.out.println("----------Task 1---------\n");
+        System.out.println("-----Task 1-----");
         System.out.println(noDigit(""));
 
-        System.out.println("\n----------Task 2---------\n");
+        System.out.println("\n-----Task 2-----");
         System.out.println(noVowel("125$"));
 
-
-        System.out.println("\n----------Task 3---------\n");
+        System.out.println("\n-----Task 3-----");
         System.out.println(sumOfDigits("Java"));
 
-
-        System.out.println("\n---------Task 4----------\n");
+        System.out.println("\n-----Task 4-----");
         System.out.println(hasUpperCase("John's age is 29"));
 
-
-        System.out.println("\n----------Task 5----------\n");
+        System.out.println("\n-----Task 5-----");
         System.out.println(middleInt(1,1,1));
 
-
-        System.out.println("\n----------Task 6---------\n");
+        System.out.println("\n-----Task 6-----");
         System.out.println(Arrays.toString(no13(new int[]{1, 2, 3, 4})));
 
-
-        System.out.println("\n----------Task 7---------\n");
+        System.out.println("\n-----Task 7-----");
         System.out.println(Arrays.toString(arrFactorial(new int[]{1, 2, 3, 4})));
 
-
-        System.out.println("\n----------Task 8---------\n");
+        System.out.println("\n-----Task 8-----");
         System.out.println(Arrays.toString(categorizeCharacters("abc123$#%")));
-
     }
 
-    // Task1
+    //Task1
     public static String noDigit(String str){
         String str1 = "";
         for (int i = 0; i < str.length(); i++) {
@@ -45,7 +38,7 @@ public class Homework12 {
         return str1;
     }
 
-    // Task2
+    //Task2
     public static String noVowel(String str){
         return str.replaceAll("[aeiouAEIOU]", "");
     }
@@ -60,7 +53,7 @@ public class Homework12 {
         return sum;
     }
 
-    // Task4
+    //Task4
     public static boolean hasUpperCase(String str){
 
         boolean isUpperCase = false;
@@ -73,14 +66,14 @@ public class Homework12 {
         return isUpperCase;
     }
 
-    // Task 5
+    //Task 5
     public static int middleInt(int a, int b, int c){
         int[] numbers ={a,b,c};
         Arrays.sort(numbers);
         return numbers[1];
     }
 
-    // Task 6
+    //Task 6
     public static int[] no13(int[] array){
         int[] newArr = new int[array.length];
         for (int i = 0; i < array.length; i++) {
@@ -90,7 +83,7 @@ public class Homework12 {
         return newArr;
     }
 
-    // Task 7
+    //Task 7
     public static int[] arrFactorial(int[] array){
 
         for (int i = 0; i < array.length; i++){
@@ -103,8 +96,7 @@ public class Homework12 {
         return array;
     }
 
-
-    // Task 8
+    //Task 8
     public static String[] categorizeCharacters(String str) {
 
         String[] categorized = {"", "", ""};
@@ -114,6 +106,5 @@ public class Homework12 {
             else categorized[2] += character + "";
         }
         return categorized;
-
     }
 }
